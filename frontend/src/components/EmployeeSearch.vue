@@ -94,12 +94,16 @@ select.placeholder {
   .search {
     padding: 14px 16px;
   }
-  .search input,
-  .search select {
+  .f-cpf,
+  .f-name,
+  .f-email {
     flex: 1 1 100%;
   }
+  .search select,
   .f-shoe {
-    width: 100%;
+    flex: 1;
+    width: auto;
+    min-width: 0;
   }
   .btn-primary,
   .btn-outline {
