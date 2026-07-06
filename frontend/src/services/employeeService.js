@@ -1,4 +1,4 @@
-const BASE_URL = '/api/employees';
+const BASE_URL = `${import.meta.env.VITE_API_URL ?? ''}/api/employees`;
 
 async function handleResponse(response) {
   if (!response.ok) {

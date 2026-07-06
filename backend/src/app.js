@@ -5,9 +5,12 @@ import { errorHandler } from './middlewares/errorHandler.js';
 
 export const app = express();
 
-app.use(cors());
+const allowedOrigin = process.env.FRONTEND_URL ?? '*';
+
+app.use(cors({ origin: allowedOrigin }));
+
 app.use(express.json());
 
-app.use('/employees', employeeRoutes);
+app.use('/api/employees', employeeRoutes);
 
 app.use(errorHandler);
