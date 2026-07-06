@@ -4,6 +4,13 @@ Aplicação web para gerenciar o cadastro de tamanhos de calçado e camiseta dos
 funcionários, voltada à distribuição de brindes de fim de ano. Permite cadastrar,
 editar, listar, buscar e excluir funcionários.
 
+**🔗 Demonstração:** [gestao-funcionarios-frontend.onrender.com](https://gestao-funcionarios-1.onrender.com/)
+
+> A aplicação está hospedada no plano gratuito do Render, onde o back-end
+> hiberna após períodos de inatividade. A primeira requisição pode levar
+> de 30 a 50 segundos para responder enquanto o serviço "acorda"; as
+> seguintes são normais.
+
 ## Funcionalidades
 
 - Cadastro e edição de funcionários (CPF, nome, email, tamanho de camiseta e de calçado).
