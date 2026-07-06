@@ -3,6 +3,7 @@ import { ref, watch, computed } from 'vue'
 
 const props = defineProps({
   employee: { type: Object, default: null },
+  apiError: { type: String, default: null },
 })
 
 const emit = defineEmits(['submit', 'cancel'])
@@ -73,6 +74,7 @@ function handleSubmit() {
       </div>
 
       <div class="modal-body">
+        <p v-if="apiError" class="form-alert span-2">{{ apiError }}</p>
         <label class="field">
           <span>CPF</span>
           <input v-model="form.cpf" type="text" class="mono" placeholder="Somente números" />
@@ -190,6 +192,16 @@ function handleSubmit() {
 .error {
   color: var(--danger);
   font-size: 12px;
+}
+.form-alert {
+  grid-column: 1 / 3;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--danger-soft);
+  border: 1px solid #f6cdd2;
+  border-radius: 8px;
+  color: var(--danger);
+  font: 500 13px var(--sans);
 }
 
 .modal-footer {

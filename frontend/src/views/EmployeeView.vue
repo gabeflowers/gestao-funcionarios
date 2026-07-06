@@ -10,6 +10,7 @@ const loading = ref(false)
 const feedback = ref(null)
 const showForm = ref(false)
 const selected = ref(null)
+const formError = ref(null)
 const deleteTarget = ref(null)
 
 async function loadEmployees(filters = {}) {
@@ -25,20 +26,24 @@ async function loadEmployees(filters = {}) {
 
 function openCreate() {
   selected.value = null
+  formError.value = null
   showForm.value = true
 }
 
 function openEdit(employee) {
   selected.value = employee
+  formError.value = null
   showForm.value = true
 }
 
 function closeForm() {
   showForm.value = false
   selected.value = null
+  formError.value = null
 }
 
 async function handleSubmit(payload) {
+  formError.value = null
   try {
     if (selected.value) {
       await api.updateEmployee(selected.value.id, payload)
@@ -50,7 +55,7 @@ async function handleSubmit(payload) {
     closeForm()
     await loadEmployees()
   } catch (err) {
-    showFeedback(err.message, 'error')
+    formError.value = err.message
   }
 }
 
@@ -136,6 +141,7 @@ onMounted(() => loadEmployees())
     <EmployeeForm
       v-if="showForm"
       :employee="selected"
+      :api-error="formError"
       @submit="handleSubmit"
       @cancel="closeForm"
     />
@@ -371,5 +377,19 @@ onMounted(() => loadEmployees())
   border-radius: 8px;
   font: 600 13px var(--sans);
   cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .view {
+    padding: 20px 14px 32px;
+  }
+  .card-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
 }
 </style>

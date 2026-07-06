@@ -89,4 +89,21 @@ select.placeholder {
   font: 500 13px var(--sans);
   cursor: pointer;
 }
+
+@media (max-width: 640px) {
+  .search {
+    padding: 14px 16px;
+  }
+  .search input,
+  .search select {
+    flex: 1 1 100%;
+  }
+  .f-shoe {
+    width: 100%;
+  }
+  .btn-primary,
+  .btn-outline {
+    flex: 1;
+  }
+}
 </style>

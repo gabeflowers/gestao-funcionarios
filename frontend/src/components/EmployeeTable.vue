@@ -13,7 +13,8 @@ function formatCpf(cpf) {
 </script>
 
 <template>
-  <table v-if="employees.length" class="table">
+  <div v-if="employees.length" class="table-wrap">
+  <table class="table">
     <thead>
       <tr>
         <th class="col-first">CPF</th>
@@ -38,6 +39,7 @@ function formatCpf(cpf) {
       </tr>
     </tbody>
   </table>
+  </div>
   <div v-else class="empty">
     <div class="empty-icon">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2450d8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11" /></svg>
@@ -52,8 +54,12 @@ function formatCpf(cpf) {
 </template>
 
 <style scoped>
+.table-wrap {
+  overflow-x: auto;
+}
 .table {
   width: 100%;
+  min-width: 640px;
   border-collapse: collapse;
   font: 14px var(--sans);
 }
