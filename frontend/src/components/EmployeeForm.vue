@@ -77,7 +77,7 @@ function handleSubmit() {
         <p v-if="apiError" class="form-alert span-2">{{ apiError }}</p>
         <label class="field">
           <span>CPF</span>
-          <input v-model="form.cpf" type="text" class="mono" placeholder="Somente números" />
+          <input v-model="form.cpf" type="text" class="mono" placeholder="Somente números" maxlength="11" />
           <span v-if="errors.cpf" class="error">{{ errors.cpf }}</span>
         </label>
         <label class="field">

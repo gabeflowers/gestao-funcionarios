@@ -18,7 +18,7 @@ function handleClear() {
 
 <template>
   <div class="search">
-    <input v-model="filters.cpf" class="f-cpf" placeholder="CPF" />
+    <input v-model="filters.cpf" class="f-cpf" placeholder="CPF" maxlength="11" />
     <input v-model="filters.name" class="f-name" placeholder="Nome" />
     <input v-model="filters.email" class="f-email" placeholder="Email" />
     <select v-model="filters.shirtSize" :class="{ placeholder: !filters.shirtSize }">
